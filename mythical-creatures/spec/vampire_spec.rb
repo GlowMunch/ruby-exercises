@@ -7,7 +7,7 @@ RSpec.describe Vampire do
     expect(vampire.name).to eq('Dracula')
   end
 
-  it 'it can be named something else' do
+it 'it can be named something else' do
     vampire = Vampire.new('Vladimir')
     expect(vampire.name).to eq('Vladimir')
   end
