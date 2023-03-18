@@ -49,6 +49,7 @@ RSpec.describe Hobbit do
     33.times do
       hobbit.celebrate_birthday
     end
+  
 
     expect(hobbit.adult?).to be true
 
@@ -58,21 +59,26 @@ RSpec.describe Hobbit do
     expect(hobbit.adult?).to be true
   end
 
-  xit 'is old at the age of 101' do
-    # create a hobbit
-    # have hobbit age 101 years
-    # check that hobbit.old? returns true
+  it 'is old at the age of 101' do
+    hobbit = Hobbit.new('Will')# create a hobbit
+
+    101.times do # have hobbit age 101 years
+      hobbit.celebrate_birthday
+    end
+
+    expect(hobbit.old?).to be true# check that hobbit.old? returns true
   end
 
-  xit 'it has the ring if its name is Frodo' do
-    # create a hobbit named Frodo
-    # create a second hobbit named Sam
-    # check that .has_ring? for Frodo returns true
-    # check that .has_ring? for Sam returns false
+  it 'it has the ring if its name is Frodo' do
+    hobbit = Hobbit.new('Frodo') # create a hobbit named Frodo
+    expect(hobbit.has_ring?).to be true# check that .has_ring? for Frodo returns true
+  
+    hobbit = Hobbit.new('Sam')# create a second hobbit named Sam
+    expect(hobbit.has_ring?).to be false# check that .has_ring? for Sam returns false
   end
 
-  xit 'they are short' do
-    # create a hobbit
-    # check that is_short? returns true
+  it 'they are short' do
+    hobbit = Hobbit.new('Shorty') # create a hobbit
+    expect(hobbit.short?).to be true # check that is_short? returns true
   end
 end
